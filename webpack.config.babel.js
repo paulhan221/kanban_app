@@ -37,11 +37,6 @@ var common = {
     inline: true,
     progress: true
   },
-  entry: APP_PATH,
-  output: {
-    path: BUILD_PATH,
-    filename: 'bundle.js'
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlwebpackPlugin({

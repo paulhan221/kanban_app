@@ -5,7 +5,7 @@ export default class Note extends React.Component {
     super(props);
 
     this.finishEdit = this.finishEdit.bind(this);
-    this.checkEnter - this.checkEnter.bind(this);
+    this.checkEnter = this.checkEnter.bind(this);
     this.edit = this.edit.bind(this);
     this.renderEdit = this.renderEdit.bind(this);
     this.renderTask = this.renderTask.bind(this);
@@ -14,13 +14,12 @@ export default class Note extends React.Component {
       editing: false
     };
   }
-
   render() {
     const editing = this.state.editing;
 
     return (
       <div>
-        { editing ? this.renderEdit() : this.renderTask() }
+        {editing ? this.renderEdit() : this.renderTask()}
       </div>
     );
   }
@@ -40,7 +39,7 @@ export default class Note extends React.Component {
     });
   }
   checkEnter(e) {
-    if(e.key == "Enter") {
+    if(e.key === 'Enter') {
       this.finishEdit(e);
     }
   }

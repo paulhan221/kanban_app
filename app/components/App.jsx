@@ -26,6 +26,7 @@ export default class App extends React.Component {
     this.addNote = this.addNote.bind(this);
     this.findNote = this.findNote.bind(this);
     this.editNote = this.editNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
   render() {
     const notes = this.state.notes;
@@ -33,7 +34,7 @@ export default class App extends React.Component {
     return (
       <div>
         <button className="add-note" onClick={this.addNote}>+</button>
-        <Notes items={notes} onEdit={this.editNote} />
+        <Notes items={notes} onEdit={this.editNote} onDelete={this.deleteNote} />
       </div>
     );
   }
@@ -66,6 +67,18 @@ export default class App extends React.Component {
     }
 
     return noteIndex;
+  }
+  deleteNote(id) {
+    const notes = this.state.notes;
+    const noteIndex = this.findNote(id);
+
+    if(noteIndex < 0) {
+      return;
+    }
+
+    this.setState({
+      notes: notes.slice(0, noteIndex).concat(notes.slice(noteIndex + 1))
+    });
   }
 }
 

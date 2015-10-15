@@ -75,7 +75,7 @@ export default class App extends React.Component {
     if(noteIndex < 0) {
       return;
     }
-
+    debugger;
     this.setState({
       notes: notes.slice(0, noteIndex).concat(notes.slice(noteIndex + 1))
     });

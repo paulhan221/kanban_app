@@ -1,3 +1,4 @@
+// random file to test es6 features
 class Arrow {
   constructor(waka, flaka) {
     this.waka = waka;
@@ -11,4 +12,6 @@ class Arrow {
 
 var arrow = new Arrow('waka', 'flaka');
 
-console.log(arrow.hello);
+var arr = [1,2,3,4,5];
+
+console.log(arr.filter((a) => a > 1));

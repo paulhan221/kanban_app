@@ -9,7 +9,7 @@ class NoteStore {
     this.notes = [];
 
     this.exportPublicMethods({
-      get: this.get.bind(this);
+      get: this.get.bind(this)
     });
   }
   create(note) {

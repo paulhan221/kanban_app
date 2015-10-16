@@ -44,7 +44,6 @@ class LaneStore {
     }
   }
   detachFromLane({laneId, noteId}) {
-    const lanes = this.lanes;
     const targetId = this.findLane(laneId);
 
     if(targetId < 0) {

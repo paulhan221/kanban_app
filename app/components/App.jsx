@@ -3,6 +3,9 @@ import Notes from './Notes.jsx';
 import NoteActions from '../actions/NoteActions';
 import NoteStore from '../stores/NoteStore';
 import AltContainer from 'alt/AltContainer';
+import LaneStore from '../stores/LaneStore';
+import LaneActions from '../actions/LaneActions';
+import Lanes from './Lanes.jsx';
 
 export default class App extends React.Component {
   /*
@@ -23,20 +26,22 @@ export default class App extends React.Component {
   }
   */
   render() {
-
     return (
       <div>
-        <button className="add-note" onClick={this.addNote}>+</button>
+        <button className="add-lane" onClick={this.addItem}>+</button>
         <AltContainer
-          stores={[NoteStore]}
+          stores={[LaneStore]}
           inject={ {
-            items: () => NoteStore.getState().notes
+            items: () => LaneStore.getState().lanes || []
           } }
         >
-          <Notes onEdit={this.editNote} onDelete={this.deleteNote} />
+        <Lanes />
         </AltContainer>
       </div>
     );
+  }
+  addItem() {
+    LaneActions.create({name: 'New Lane'});
   }
   addNote() {
     // this.setState({
@@ -80,7 +85,7 @@ export default class App extends React.Component {
     // this.setState({
     //   notes: notes.slice(0, noteIndex).concat(notes.slice(noteIndex + 1))
     // });
-  NoteActions.delete(id);
+    NoteActions.delete(id);
   }
 }
 

@@ -8,10 +8,16 @@ class Arrow {
   hello() {
     () => console.log('word')
   }
+
+  objectParams({waka, flaka}) {
+    console.log(waka);
+    console.log('   ||     ');
+    console.log(flaka);
+  }
 }
 
 var arrow = new Arrow('waka', 'flaka');
 
-var arr = [1,2,3,4,5];
-
-console.log(arr.filter((a) => a > 1));
+var dear = {hi: 'hi'};
+var beer = {bye: 'bye'};
+console.log(arrow.objectParams(dear, beer));

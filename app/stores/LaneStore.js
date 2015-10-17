@@ -14,7 +14,6 @@ class LaneStore {
 
     lane.id = uuid.v4();
     lane.notes = lane.notes || [];
-
     this.setState({
       lanes: lanes.concat(lane)
     });
@@ -45,9 +44,11 @@ class LaneStore {
   }
   attachToLane({laneId, noteId}) {
     if(!noteId) {
+
       this.waitFor(NoteStore);
 
       noteId = NoteStore.getState().notes.slice(-1)[0].id;
+
     }
 
     const lanes =this.lanes;
@@ -59,8 +60,8 @@ class LaneStore {
 
     const lane = lanes[targetId];
 
-    if(lane.notes.indexof(noteId) === -1) {
-      lanes.notes.push(noteId);
+    if(lane.notes.indexOf(noteId) === -1) {
+      lane.notes.push(noteId);
 
       this.setState({lanes});
     }

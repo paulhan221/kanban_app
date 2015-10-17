@@ -32,7 +32,7 @@ export default class Lane extends React.Component {
         <AltContainer
           stores={[NoteStore]}
           inject={ {
-            items: ()=> NoteStore.getState().notes || []
+            items: ()=> NoteStore.get(lane.notes) || []
           } }
         >
           <Notes
